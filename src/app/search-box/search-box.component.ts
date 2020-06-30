@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MovieService} from '../services/movie.service';
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBoxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
   }
-  loadSearch(e){
-
+  loadSearch(e) {
+this.movieService.searchForMovies(e.target.value);
   }
 
 }
